@@ -1,10 +1,8 @@
 # Linux Server Configuration
 
-Public IP: 35.164.165.70
-
-SSH PORT: 2200
-
-URL: http://ec2-35-164-165-70.us-west-2.compute.amazonaws.com/
+- Public IP: 35.164.165.70
+- SSH PORT: 2200
+- URL: http://ec2-35-164-165-70.us-west-2.compute.amazonaws.com/
 
 ## 1) Create Development Environment and SSH Into Server
 Download Private Key
