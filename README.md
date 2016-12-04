@@ -18,3 +18,31 @@ Open your terminal and type in
 SSH into the server
 
 `ssh -i ~/.ssh/udacity_key.rsa root@<PUBLIC_IP>`
+
+## 2) Create a New User, Change User Permissions, Update All Currently Installed Packages
+
+Create a new user named grader
+
+`sudo adduser grader`
+
+Give the grader sudo permission
+
+`sudo visudo`
+
+Add `grader ALL=(ALL:ALL) ALL` in the file right below `root ALL=(ALL:ALL) ALL` in the User Privilege Specification Header
+
+Save file and exit
+
+Update all currently installed packages
+
+`sudo apt-get update`
+
+`sudo apt-get upgrade`
+
+## 3) Edit SSH Configuration, Create SSH Keys, and Login
+
+## 4) Configure Uncomplicated Firewall
+
+## 5) Configure Local Timezone to UTC
+
+
