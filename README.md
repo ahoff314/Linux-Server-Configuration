@@ -164,7 +164,7 @@ from flask import Flask
 app = Flask(__name__)
 @app.route("/")
 def hello():
-    return "Hello, I love Digital Ocean!"
+    return "IT WORKS!!!"
 if __name__ == "__main__":
     app.run()
 ```
@@ -285,4 +285,7 @@ Could not reliably determine the VPS's fully qualified domain name, using 127.0.
 
 This message is just a warning, and you will be able to access your virtual host without any further issues. To view your application, open your browser and navigate to the domain name or IP address that you entered in your virtual host configuration.
 
-You have successfully deployed a flask application.
+You have successfully deployed a flask application. Make sure this works and that you can see "IT WORKS!!!" before proceeding.
+
+## 9) Clone and Setup Catalog App
+
