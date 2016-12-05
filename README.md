@@ -39,10 +39,10 @@ Update all currently installed packages
 
 ## 3) Edit SSH Configuration, Create SSH Keys, and Login
 
-`nano /etc/ssh/sshd_config`
+`sudo nano /etc/ssh/sshd_config`
 
 - Change Port 22 to Port 2200
-- Change PermitRootLogin without-password to PermitRootLogin no to disallow root login
+- Change `PermitRootLogin without-password` to `PermitRootLogin no` to disallow root login
 - Change PasswordAuthentication from no to yes. We will change back after finishing SHH login setup
 - Add `AllowUsers grader` to the file
 
@@ -60,7 +60,7 @@ Login with the new user
 
 Edit SSHD configuration
 
-`sudo vim /etc/ssh/sshd_config`
+`sudo nano /etc/ssh/sshd_config`
 
 Change `PasswordAuthentication` back to `no`
 
@@ -94,18 +94,6 @@ Enable firewall
 
 `sudo apt-get install python-setuptools libapache2-mod-wsgi`
 
-To avoid apr_sockaddr_info_get() failed error message
-
-`sudo nano /etc/apache2/conf-available/servername.conf`
-
-Change the server's name to localhost. Add the below line to the conf file
-
-`ServerName localhost`
-
-Enable the config file
-
-`sudo a2enconf servername`
-
 Restart the server
 
 `sudo service apache2 restart`
@@ -122,7 +110,7 @@ Install and configure Github
 
 [Source: DigitalOcean](https://www.digitalocean.com/community/tutorials/how-to-deploy-a-flask-application-on-an-ubuntu-vps)
 
-We will configure the virtual host later.
+We will configure the virtual host later and clone our catalog repo later. This step is to get up and running serving a bare bones Flask app to ensure our configuration is correct.
 
 Move to the /var/www directory
 
@@ -278,6 +266,8 @@ Now your directory structure should look like this:
 Restart Apache with the following command to apply the changes:
 
 `sudo service apache2 restart`
+
+Note: If this does not work, `cd /var/www/FlaskApp` then `ls`. Make sure there is only one conf file. If there are two, delete the one you are not using.
 
 You may see a message similar to the following:
 
