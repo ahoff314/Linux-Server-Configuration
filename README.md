@@ -48,9 +48,45 @@ Update all currently installed packages
 
 `sudo service ssh reload`
 
+Create SSH Keys and Copy to the Server
+
+`ssh-keygen`
+
+`ssh-copy-id grader@35.165.164.70 -p 2200`
+
+Login with the new user
+
+`ssh -v grader@35.165.164.70 -p 2200`
+
+Edit SSHD configuration
+
+`sudo vim /etc/ssh/sshd_config`
+
+Change `PasswordAuthentication` back to `no`
+
 ## 4) Configure Uncomplicated Firewall
 
+Deny all incoming by default
+`sudo ufw default deny incoming`
+
+Allow outgoing by default
+`sudo ufw default allow outgoing`
+
+Allow SSH on port 2200
+`sudo ufw allow 2200/tcp`
+
+Allow HTTP on port 80
+`sudo ufw allow 80/tcp`
+
+Allow NTP on port 123
+`sudo ufw allow 123/udp`
+
+Enable firewall
+`sudo ufw enable`
+
 ## 5) Configure Local Timezone to UTC
+
+`sudo dpkg-reconfigure tzdata` Select none of the above then select UTC
 
 ## 6) Install and Configure Apache to Serve a Python Mod-wsgi App, Github
 
