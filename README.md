@@ -43,7 +43,7 @@ Update all currently installed packages
 
 ## 5) Configure Local Timezone to UTC
 
-## 6) Install and Configure Apache
+## 6) Install and Configure Apache to Serve a Python Mod-wsgi App, Github
 
 `sudo apt-get install apache2`
 
@@ -53,7 +53,7 @@ Restart the server
 
 `sudo service apache2 restart`
 
-## 7) Github 
+Install and configure Github
 
 `sudo apt-get install git`
 
@@ -61,7 +61,7 @@ Restart the server
 
 `git config --global user.email <EMAIL_ADDRESS>`
 
-## 8) Create a Boilerplate Flask App
+## 7) Create a Boilerplate Flask App
 
 [Source: DigitalOcean](https://www.digitalocean.com/community/tutorials/how-to-deploy-a-flask-application-on-an-ubuntu-vps)
 
@@ -148,8 +148,81 @@ To deactivate the environment, give the following command:
 
 `deactivate`
 
-## X) Configure and Enable a New Virtual Host Using AWS Instance
+## 8) Configure and Enable a New Virtual Host
 
+[Source: DigitalOcean](https://www.digitalocean.com/community/tutorials/how-to-deploy-a-flask-application-on-an-ubuntu-vps)
 
+Issue the following command in your terminal:
 
+`sudo nano /etc/apache2/sites-available/FlaskApp`
 
+NOTE: Newer versions of Ubuntu (13.10+) require a ".conf" extension for VirtualHost files -- run the following command instead:
+
+`sudo nano /etc/apache2/sites-available/FlaskApp.conf`
+
+Add the following lines of code to the file to configure the virtual host. Be sure to change the ServerName to your domain or cloud server's IP address:
+
+```
+<VirtualHost *:80>
+		ServerName mywebsite.com
+		ServerAdmin admin@mywebsite.com
+		WSGIScriptAlias / /var/www/FlaskApp/flaskapp.wsgi
+		<Directory /var/www/FlaskApp/FlaskApp/>
+			Order allow,deny
+			Allow from all
+		</Directory>
+		Alias /static /var/www/FlaskApp/FlaskApp/static
+		<Directory /var/www/FlaskApp/FlaskApp/static/>
+			Order allow,deny
+			Allow from all
+		</Directory>
+		ErrorLog ${APACHE_LOG_DIR}/error.log
+		LogLevel warn
+		CustomLog ${APACHE_LOG_DIR}/access.log combined
+</VirtualHost>
+```
+
+Save and close the file.
+
+Enable the virtual host with the following command:
+
+`sudo a2ensite FlaskApp`
+
+Apache uses the .wsgi file to serve the Flask app. Move to the /var/www/FlaskApp directory and create a file named flaskapp.wsgi with following commands:
+
+`cd /var/www/FlaskApp`
+`sudo nano flaskapp.wsgi` 
+
+Add the following lines of code to the flaskapp.wsgi file:
+
+#!/usr/bin/python
+import sys
+import logging
+logging.basicConfig(stream=sys.stderr)
+sys.path.insert(0,"/var/www/FlaskApp/")
+
+from FlaskApp import app as application
+application.secret_key = 'Add your secret key'
+
+Now your directory structure should look like this:
+
+```
+|--------FlaskApp
+|----------------FlaskApp
+|-----------------------static
+|-----------------------templates
+|-----------------------venv
+|-----------------------__init__.py
+|----------------flaskapp.wsgi
+```
+Restart Apache with the following command to apply the changes:
+
+`sudo service apache2 restart`
+
+You may see a message similar to the following:
+
+Could not reliably determine the VPS's fully qualified domain name, using 127.0.0.1 for ServerName 
+
+This message is just a warning, and you will be able to access your virtual host without any further issues. To view your application, open your browser and navigate to the domain name or IP address that you entered in your virtual host configuration.
+
+You have successfully deployed a flask application.
