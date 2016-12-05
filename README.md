@@ -39,6 +39,15 @@ Update all currently installed packages
 
 ## 3) Edit SSH Configuration, Create SSH Keys, and Login
 
+`nano /etc/ssh/sshd_config`
+
+- Change Port 22 to Port 2200
+- Change PermitRootLogin without-password to PermitRootLogin no to disallow root login
+- Change PasswordAuthentication from no to yes. We will change back after finishing SHH login setup
+- Add `AllowUsers grader` to the file
+
+`sudo service ssh reload`
+
 ## 4) Configure Uncomplicated Firewall
 
 ## 5) Configure Local Timezone to UTC
