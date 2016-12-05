@@ -195,6 +195,7 @@ Apache uses the .wsgi file to serve the Flask app. Move to the /var/www/FlaskApp
 
 Add the following lines of code to the flaskapp.wsgi file:
 
+```
 #!/usr/bin/python
 import sys
 import logging
@@ -203,6 +204,7 @@ sys.path.insert(0,"/var/www/FlaskApp/")
 
 from FlaskApp import app as application
 application.secret_key = 'Add your secret key'
+```
 
 Now your directory structure should look like this:
 
