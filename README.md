@@ -49,6 +49,18 @@ Update all currently installed packages
 
 `sudo apt-get install python-setuptools libapache2-mod-wsgi`
 
+To avoid apr_sockaddr_info_get() failed error message
+
+`sudo nano /etc/apache2/conf-available/servername.conf`
+
+Change the server's name to localhost. Add the below line to the conf file
+
+`ServerName localhost`
+
+Enable the config file
+
+`sudo a2enconf servername`
+
 Restart the server
 
 `sudo service apache2 restart`
@@ -217,6 +229,7 @@ Now your directory structure should look like this:
 |-----------------------__init__.py
 |----------------flaskapp.wsgi
 ```
+
 Restart Apache with the following command to apply the changes:
 
 `sudo service apache2 restart`
