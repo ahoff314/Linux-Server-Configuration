@@ -5,6 +5,8 @@
 - URL: http://ec2-35-164-165-70.us-west-2.compute.amazonaws.com/
 
 ## 1) Create Development Environment and SSH Into Server
+[Source: Udacity](https://www.udacity.com/account#!/development_environment)
+
 Download Private Key
 
 Move the private key file into the folder ~/.ssh (where ~ is your environment's home directory)
