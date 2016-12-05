@@ -90,19 +90,19 @@ Then, move inside this directory and create two subdirectories named static and 
 
 Your directory structure should now look like this:
 
-`
+```
 |----FlaskApp
 |---------FlaskApp
 |--------------static
 |--------------templates
-`
+```
 
 Now, create the __init__.py file that will contain the flask application logic.
 
 `sudo nano __init__.py` 
 
 Add following logic to the file:
-`
+```
 from flask import Flask
 app = Flask(__name__)
 @app.route("/")
@@ -110,7 +110,7 @@ def hello():
     return "Hello, I love Digital Ocean!"
 if __name__ == "__main__":
     app.run()
-`
+```
     
 Save and close the file.
 
