@@ -314,9 +314,10 @@ Activate the virtual environment and install dependencies
 - `pip install sqlalchemy`
 - `sudo apt-get install python-psycopg2`
 
-
-
-
-if getting importerror psycopg2 try:
+If getting importerror psycopg2 try:
 
 `sudo apt-get build-dep python-psycopg2`. Then `pip install psycopg2`
+
+## 10) Install and Configure PostgreSQL
+
+
