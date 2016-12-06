@@ -285,7 +285,37 @@ You have successfully deployed a flask application. Make sure this works and tha
 
 ## 9) Clone and Setup Catalog App
 
-Requirements etc etc
+[Source: DigitalOcean](https://www.digitalocean.com/community/tutorials/how-to-secure-postgresql-on-an-ubuntu-vps)
+
+Clone the catalog repo
+
+`git clone https://github.com/ahoff314/floffenhauser_brewing.git`
+
+Move files from clone directory to catalog 
+
+`mv /var/www/brewtopia/floffenhauser_brewing/vagrant/catalog/* /var/www/brewtopia/brewtopia/`
+
+Remove empty directory
+
+`sudo rm -r floffenhauser_brewing`
+
+Make the GitHub repo inaccessible
+
+`cd /var/www/brewtopia/ and $ sudo nano .htaccess`
+
+Add `RedirectMatch 404 /\.git` in the file
+
+Activate the virtual environment and install dependencies
+
+- `source venv/bin/activate`
+- `pip install httplib2`
+- `pip install requests`
+- `sudo pip install --upgrade oauth2client`
+- `pip install sqlalchemy`
+- `sudo apt-get install python-psycopg2`
+
+
+
 
 if getting importerror psycopg2 try:
 
