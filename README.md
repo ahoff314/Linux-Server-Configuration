@@ -368,3 +368,5 @@ Restart Apache `sudo service apache2 restart`
 If you are getting importerror psycopg2 try:
 
 `sudo apt-get build-dep python-psycopg2`. Then `pip install psycopg2`
+
+## 11) Run Application, Oauth, Troubleshooting, Celebrate Victoriously
