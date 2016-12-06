@@ -177,7 +177,7 @@ Give the following command (where venv is the name you would like to give your t
 
 `sudo virtualenv venv`
 
-Enable all permissions for the new virtual environment. No sudo should be used when installing packages.
+Enable all permissions for the new virtual environment. No sudo should be used when installing packages. 
 
 `sudo chmod -R 777 venv`
 
@@ -285,3 +285,8 @@ You have successfully deployed a flask application. Make sure this works and tha
 
 ## 9) Clone and Setup Catalog App
 
+Requirements etc etc
+
+if getting importerror psycopg2 try:
+
+`sudo apt-get build-dep python-psycopg2`. Then `pip install psycopg2`
