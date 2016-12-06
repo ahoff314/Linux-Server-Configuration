@@ -177,6 +177,10 @@ Give the following command (where venv is the name you would like to give your t
 
 `sudo virtualenv venv`
 
+Enable all permissions for the new virtual environment. No sudo should be used when installing packages.
+
+`sudo chmod -R 777 venv`
+
 Now, install Flask in that environment by activating the virtual environment with the following command:
 
 `source venv/bin/activate`
