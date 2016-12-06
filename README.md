@@ -370,4 +370,4 @@ If you are getting importerror psycopg2 try:
 
 `sudo apt-get build-dep python-psycopg2`. Then `pip install psycopg2`
 
-## 11) Run Application, Oauth, Troubleshooting, Celebrate Victoriously
+## 11) Run Application, Oauth, Troubleshooting / Helpful Resources, Celebrate Victoriously
