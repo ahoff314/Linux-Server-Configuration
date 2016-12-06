@@ -305,7 +305,7 @@ Make the GitHub repo inaccessible
 
 Add `RedirectMatch 404 /\.git` in the file
 
-Activate the virtual environment and install dependencies
+Activate the virtual environment and install dependencies:
 
 - `source venv/bin/activate`
 - `pip install httplib2`
@@ -313,6 +313,7 @@ Activate the virtual environment and install dependencies
 - `sudo pip install --upgrade oauth2client`
 - `pip install sqlalchemy`
 - `sudo apt-get install python-psycopg2`
+- Install other dependencies `pip install -r requirements.txt`
 
 If getting importerror psycopg2 try:
 
