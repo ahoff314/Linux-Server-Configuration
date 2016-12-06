@@ -320,4 +320,51 @@ If getting importerror psycopg2 try:
 
 ## 10) Install and Configure PostgreSQL
 
+Install PostgreSQL
 
+`sudo apt-get install postgresql postgresql-contrib`
+
+Install PostgreSQL:
+
+Edit the database setup file `sudo nano database_setup.py`
+
+Change the line starting with engine to:
+
+`engine = create_engine('postgresql://brewtopia:db-pw@localhost/brewtopia')`
+
+Change the same line in the app.py file `sudo nano __init__.py`
+
+`engine = create_engine('postgresql://brewtopia:db-pw@localhost/brewtopia')`
+
+Rename the app.py file
+
+`mv application.py __init__.py`
+
+Create a new user for psql
+
+`sudo adduser brewtopia` then choose a secure password
+
+Change to the default user and connect to the system `sudo su - postgres` then `psql`
+
+Add postgresql user with password, alter user, create database, connect, revoke public rights, grant access only to brewtopia role:
+  
+- `CREATE USER brewtopia WITH PASSWORD 'db-pw';` 
+- `ALTER USER catalog CREATEDB;` List all current roles to confirm `\du`
+- `CREATE DATABASE catalog WITH OWNER catalog;`
+- `\c brewtopia`
+- `REVOKE ALL ON SCHEMA public FROM public;`
+- `GRANT ALL ON SCHEMA public TO catalog;`
+
+Exit out of PostgreSQl and the postgres user
+
+`\q` then `exit`
+    
+Create postgreSQL database schema
+
+`python database_setup.py`
+
+Restart Apache `sudo service apache2 restart`
+
+If you are getting importerror psycopg2 try:
+
+`sudo apt-get build-dep python-psycopg2`. Then `pip install psycopg2`
