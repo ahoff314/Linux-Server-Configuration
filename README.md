@@ -370,4 +370,10 @@ If you are getting importerror psycopg2 try:
 
 `sudo apt-get build-dep python-psycopg2`. Then `pip install psycopg2`
 
+If getting PEER authentication failed then `sudo nano /etc/postgresql/9.3/main/pg_hba.conf`. Change the parts near the bottom of the file from `peer` to `md5`
+
 ## 11) Run Application, Oauth, Troubleshooting / Helpful Resources, Celebrate Victoriously
+
+When in doubt, troubleshoot it out:
+
+`sudo tail -20 /var/log/apache2/error.log` to see last 20 error messages.
