@@ -376,4 +376,6 @@ If getting PEER authentication failed then `sudo nano /etc/postgresql/9.3/main/p
 
 When in doubt, troubleshoot it out:
 
+Oauth
+
 `sudo tail -10 /var/log/apache2/error.log` to see last 10 error messages.
