@@ -374,8 +374,36 @@ If getting PEER authentication failed then `sudo nano /etc/postgresql/9.3/main/p
 
 ## 11) Run Application, Oauth, Troubleshooting / Helpful Resources, Celebrate Victoriously
 
+Use the IP address from the Udacity development environment to populate the below URL.
+
+http://ec2-XX-XXX-XXX-XX.us-west-2.compute.amazonaws.com/
+
+This project's URL, for example, is: `http://ec2-35-164-165-70.us-west-2.compute.amazonaws.com/`
+
+`sudo nano /etc/apache2/sites-available/brewtopia.conf`
+
+Paste the below right under ServerAdmin:
+
+`ServerAlias HOSTNAME http://ec2-XX-XXX-XXX-XX.us-west-2.compute.amazonaws.com/`
+
+To enable Oauth and G+, go to Google Developers Console (console.developers.google.com) and navigate to your catalog project under the credentials heading. Edit the setting to add your host name and IP address to the Authorized Javascript Origins section:
+
+Add `http://ec2-35-164-165-70.us-west-2.compute.amazonaws.com/` and `http://35.164.165.70` for example
+
+To authorized redirect URIs, add the below:
+
+`http://ec2-35-164-165-70.us-west-2.compute.amazonaws.com/oauth2callback` for example
+
+Visit your URL and everything should be working now. If not, continue on with the below helpful commands, troubleshooting, and resources.
+
 When in doubt, troubleshoot it out:
 
-Oauth
-
 `sudo tail -10 /var/log/apache2/error.log` to see last 10 error messages.
+
+ It is also helpful to run `sudo service apache2 restart` and `sudo service postgresql restart` after making changes.
+ 
+ Resources:
+ 
+ [Postgresql Configuration](https://www.digitalocean.com/community/tutorials/how-to-secure-postgresql-on-an-ubuntu-vps)
+ 
+ 
