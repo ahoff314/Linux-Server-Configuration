@@ -350,7 +350,7 @@ Change to the default user and connect to the system `sudo su - postgres` then `
 Add postgresql user with password, alter user, create database, connect, revoke public rights, grant access only to brewtopia role:
   
 - `CREATE USER brewtopia WITH PASSWORD 'db-pw';` 
-- `ALTER USER catalog CREATEDB;` List all current roles to confirm `\du`
+- `ALTER USER brewtopia CREATEDB;` List all current roles to confirm `\du`
 - `CREATE DATABASE catalog WITH OWNER catalog;`
 - `\c brewtopia`
 - `REVOKE ALL ON SCHEMA public FROM public;`
