@@ -343,18 +343,18 @@ Rename the app.py file
 
 Create a new user for psql
 
-`sudo adduser brewtopia` then choose a secure password
+`sudo adduser brews` then choose a secure password
 
 Change to the default user and connect to the system `sudo su - postgres` then `psql`
 
 Add postgresql user with password, alter user, create database, connect, revoke public rights, grant access only to brewtopia role:
   
-- `CREATE USER brewtopia WITH PASSWORD 'db-pw';` 
-- `ALTER USER brewtopia CREATEDB;` List all current roles to confirm `\du`
-- `CREATE DATABASE brewtopia WITH OWNER brewtopia;`
-- `\c brewtopia`
+- `CREATE USER brews WITH PASSWORD 'db-pw';` 
+- `ALTER USER brews CREATEDB;` List all current roles to confirm `\du`
+- `CREATE DATABASE brews WITH OWNER brews;`
+- `\c brews`
 - `REVOKE ALL ON SCHEMA public FROM public;`
-- `GRANT ALL ON SCHEMA public TO brewtopia;`
+- `GRANT ALL ON SCHEMA public TO brews;`
 
 Exit out of PostgreSQl and the postgres user
 
