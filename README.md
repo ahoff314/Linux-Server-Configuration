@@ -351,10 +351,10 @@ Add postgresql user with password, alter user, create database, connect, revoke 
   
 - `CREATE USER brewtopia WITH PASSWORD 'db-pw';` 
 - `ALTER USER brewtopia CREATEDB;` List all current roles to confirm `\du`
-- `CREATE DATABASE catalog WITH OWNER catalog;`
+- `CREATE DATABASE brewtopia WITH OWNER brewtopia;`
 - `\c brewtopia`
 - `REVOKE ALL ON SCHEMA public FROM public;`
-- `GRANT ALL ON SCHEMA public TO catalog;`
+- `GRANT ALL ON SCHEMA public TO brewtopia;`
 
 Exit out of PostgreSQl and the postgres user
 
