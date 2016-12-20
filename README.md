@@ -373,7 +373,7 @@ If you are getting importerror psycopg2 try:
 
 If getting PEER authentication failed then `sudo nano /etc/postgresql/9.3/main/pg_hba.conf`. Change the parts near the bottom of the file from `peer` to `md5`
 
-## 11) Run Application, Oauth, Troubleshooting / Helpful Resources, Celebrate Victoriously
+## 11) Run Application, Oauth, Troubleshooting / Helpful Resources
 
 Use the IP address from the Udacity development environment to populate the below URL.
 
