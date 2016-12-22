@@ -399,7 +399,7 @@ Visit your URL and everything should be working now. If not, continue on with th
 
 When in doubt, troubleshoot it out:
 
-`sudo tail -10 /var/log/apache2/error.log` to see last 10 error messages.
+`sudo tail -10 /var/log/apache2/error.log` to see the last 10 error messages.
 
  It is also helpful to run `sudo service apache2 restart` and `sudo service postgresql restart` after making changes.
  
